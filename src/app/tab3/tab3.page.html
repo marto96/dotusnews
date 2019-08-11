@@ -6,4 +6,57 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content></ion-content>
+<ion-content class="ion-padding">
+    <form onsubmit="processForm(event)">
+  <h1>Contact Us</h1>
+  <img src="../../assets/seccion contact us.jpg" alt="">
+  <p>You can contact with us, we are always available and ready to help you, we are news, we are dotusnews!!!</p>
+  <ion-list lines="full" class="ion-no-margin ion-no-padding">
+  <ion-item>
+<ion-input placeholder="Name" type="text" ionFocus></ion-input>
+<ion-label position="fixed">Type Your name</ion-label>
+</ion-item>
+<ion-item>
+<ion-input type="email" placeholder="email.address@user.com"></ion-input>
+<ion-label position="stacked">Type Your email</ion-label>
+</ion-item>
+<ion-list-header>Are you interested in...*</ion-list-header>
+          <ion-item>
+            <ion-label>Support</ion-label>
+            <ion-checkbox color="danger" checked slot="start" ionChange></ion-checkbox>
+          </ion-item>
+          <ion-item>
+              <ion-label>Advertising</ion-label>
+              <ion-checkbox color="danger"  slot="start"></ion-checkbox>
+            </ion-item>
+            <ion-item>
+                <ion-label>Other</ion-label>
+                <ion-checkbox color="danger" slot="start"></ion-checkbox>
+              </ion-item>
+</ion-list>
+<div class="ion-padding">
+    <ion-button expand="block" type="submit" class="ion-no-margin">Send</ion-button>
+  </div>
+  </form>
+</ion-content>
+
+<script>
+    const controller = document.querySelector('ion-alert-controller');
+    let firstName, lastName;
+    function processForm(event) {
+      event.preventDefault();
+      controller.create({
+        header: 'Account Created',
+        message: `Created account for: <b>${firstName} ${lastName}</b>`,
+        buttons: [{
+          text: 'OK'
+        }]
+      }).then(alert => alert.present());
+    }
+    function handleFirstNameValue(event) {
+      firstName = event.target.value;
+    }
+    function handleLastNameValue(event) {
+      lastName = event.target.value;
+    }
+  </script>

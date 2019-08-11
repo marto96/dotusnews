@@ -1,5 +1,7 @@
 {
   "name": "dotusnews",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
