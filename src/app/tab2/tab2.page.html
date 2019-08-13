@@ -9,21 +9,20 @@
 
 <ion-content>
 
-  <ion-searchbar [(ngModel)]= "searchTerm"  (ionChange)="searchChanged($event)"></ion-searchbar>
 
-  <ion-item>
-<ion-label> Select Search </ion-label>
-<ion-select [(ngModel)]= "searchTerm" (ionChange)="searchChanged($event)">
-<ion-select-option value="posts">All</ion-select-option>
-<ion-select-option value="Deportes">Deportes</ion-select-option>
-<ion-select-option value="Espectaculo">Espectaculo</ion-select-option>
-<ion-select-option value="Ciencia">Ciencia</ion-select-option>
-</ion-select>
-</ion-item>
 
 
 <ion-list>
+<<<<<<< HEAD
+
+
+
+    <ion-item button *ngFor="let item of ( results | async);let i=index " [routerLink] = "['/','notice', item.id]" >
+
+
+=======
     <ion-item button *ngFor="let item of ( results | async)" >
+>>>>>>> 1fb1e70878df536c37f347755e6a0a4805f21e2e
      <ion-grid fixed>
        <ion-row>
          <ion-col size="12" size-lg="6" size-md="6" size-sm="8" size-xs="12">
@@ -34,7 +33,8 @@
        <h3>{{ item.title.rendered }}</h3>
      </ion-card-subtitle>
      </ion-card-header>
-     <ion-img [src]=""></ion-img>
+
+     <ion-img [src]="getItemById(item.id)"></ion-img>
      <ion-card-content> <ion-text>{{ item.excerpt.rendered }}</ion-text>
      </ion-card-content>
      </ion-card>

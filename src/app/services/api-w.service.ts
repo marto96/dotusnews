@@ -10,6 +10,13 @@ export enum SearchType
 
 }
 
+interface MediaG {
+    id: string;
+    source_url:string;
+
+}
+
+
 @Injectable({
   providedIn: 'root'
 })
@@ -35,19 +42,19 @@ export class ApiWService {
 
   getMedia(id: string ): Observable<any>  {
 
-    console.log('id media OBTenido:', id);
-    return this.http.get(`${this.url}/media/${id}`).pipe(
-      map(results => {
-        console.log('RAW:', results);
-        return results;
-      })
-    );
+  //  console.log('id media OBTenido:', id);
+   return this.http.get(`${this.url}/media${id}`).pipe(
+     map(res => {
+       console.log('RAW Media:', res);
+       return res;
+     })
+   );
 
   }
 
 
   getDetailsPost(id)
-  {return this.http.get(`${this.url}/${id}`);
+  {return this.http.get(`${this.url}/posts/${id}`);
   }
 
 }
