@@ -19,15 +19,13 @@ export class NoticePage implements OnInit {
 
   ngOnInit() {
     let id = this.activatedRoute.snapshot.paramMap.get('id');
-   this.apiWService.getDetailsPost(id).subscribe(result => {
+    this.apiWService.getDetailsPost(id).subscribe(result => {
      console.log('details',result)
      this.information = result;
      this.getMedia(this.information.featured_media);
 
 
    })
-
-   
   }
 
 

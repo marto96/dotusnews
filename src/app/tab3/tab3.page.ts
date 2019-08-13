@@ -13,7 +13,7 @@ export class Tab3Page {
   myForm: FormGroup;
   constructor(
     public formBuilder: FormBuilder,
-    private emailComposer: EmailComposer
+   /*  private emailComposer: EmailComposer */
   ) {
     this.myForm = this.createMyForm();
   }
@@ -30,7 +30,7 @@ export class Tab3Page {
       gender: ['', Validators.required],
     });
 }
-private envio() {
+/* private envio() {
 this.emailComposer.isAvailable().then((available: boolean) => {
     if (available) {
     }
@@ -43,6 +43,6 @@ const email = {
      isHtml: true
    }
 this.emailComposer.open(email);
-}
+} */
 }
 
