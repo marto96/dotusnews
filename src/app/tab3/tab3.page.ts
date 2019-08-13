@@ -12,7 +12,8 @@ import { EmailComposer } from '@ionic-native/email-composer/ngx';
 export class Tab3Page {
   myForm: FormGroup;
   constructor(
-    public formBuilder: FormBuilder
+    public formBuilder: FormBuilder,
+    private emailComposer: EmailComposer
   ) {
     this.myForm = this.createMyForm();
   }
@@ -29,6 +30,19 @@ export class Tab3Page {
       gender: ['', Validators.required],
     });
 }
+private envio() {
+this.emailComposer.isAvailable().then((available: boolean) => {
+    if (available) {
+    }
+   });
 
+const email = {
+     to: 'marto9610@gmail.com',
+     subject: 'Cordova Icons',
+     body: 'How are you? Nice greetings from Leipzig',
+     isHtml: true
+   }
+this.emailComposer.open(email);
+}
 }
 
