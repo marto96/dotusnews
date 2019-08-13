@@ -7,56 +7,50 @@
 </ion-header>
 
 <ion-content class="ion-padding">
-    <form onsubmit="processForm(event)">
+    <form [formGroup]="myForm" onsubmit="envio()">
   <h1>Contact Us</h1>
   <img src="../../assets/seccion contact us.jpg" alt="">
   <p>You can contact with us, we are always available and ready to help you, we are news, we are dotusnews!!!</p>
   <ion-list lines="full" class="ion-no-margin ion-no-padding">
-  <ion-item>
-<ion-input placeholder="Name" type="text" ionFocus></ion-input>
-<ion-label position="fixed">Type Your name</ion-label>
+    
+    <ion-item >
+    <ion-input formControlName="name" type="text" placeholder="Name"></ion-input>
 </ion-item>
 <ion-item>
-<ion-input type="email" placeholder="email.address@user.com"></ion-input>
-<ion-label position="stacked">Type Your email</ion-label>
+  <ion-label >Type Your name<ion-text color="danger">*</ion-text></ion-label></ion-item>
+    
+<ion-item>
+<ion-input formControlName="email" type="email" placeholder="email.address@user.com"></ion-input>
 </ion-item>
-<ion-list-header>Are you interested in...*</ion-list-header>
-          <ion-item>
-            <ion-label>Support</ion-label>
-            <ion-checkbox color="danger" checked slot="start" ionChange></ion-checkbox>
-          </ion-item>
-          <ion-item>
-              <ion-label>Advertising</ion-label>
-              <ion-checkbox color="danger"  slot="start"></ion-checkbox>
-            </ion-item>
-            <ion-item>
-                <ion-label>Other</ion-label>
-                <ion-checkbox color="danger" slot="start"></ion-checkbox>
-              </ion-item>
+<ion-item>
+<ion-label >Type Your email<ion-text color="danger">*</ion-text></ion-label>
+</ion-item>
+
+<ion-radio-group  formControlName="gender">
+  <ion-list-header>
+   <ion-label> Are you interested in...<ion-text color="danger">*</ion-text></ion-label>
+  </ion-list-header>
+
+  <ion-item>
+    <ion-radio slot="start" value="support" checked></ion-radio>
+    <ion-label >Support</ion-label>
+  </ion-item>
+
+  <ion-item>
+    <ion-radio slot="start" value="adversiting"></ion-radio>
+    <ion-label>Adversiting</ion-label>
+  </ion-item>
+
+  <ion-item>
+    <ion-radio slot="start" value="other"></ion-radio>
+    <ion-label>Other</ion-label>
+  </ion-item>
+
+</ion-radio-group>
+
 </ion-list>
 <div class="ion-padding">
-    <ion-button expand="block" type="submit" class="ion-no-margin">Send</ion-button>
+    <ion-button ion-button block type="submit" [disabled]="!myForm.valid">Send</ion-button>
   </div>
   </form>
 </ion-content>
-
-<script>
-    const controller = document.querySelector('ion-alert-controller');
-    let firstName, lastName;
-    function processForm(event) {
-      event.preventDefault();
-      controller.create({
-        header: 'Account Created',
-        message: `Created account for: <b>${firstName} ${lastName}</b>`,
-        buttons: [{
-          text: 'OK'
-        }]
-      }).then(alert => alert.present());
-    }
-    function handleFirstNameValue(event) {
-      firstName = event.target.value;
-    }
-    function handleLastNameValue(event) {
-      lastName = event.target.value;
-    }
-  </script>

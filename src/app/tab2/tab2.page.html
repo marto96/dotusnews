@@ -3,6 +3,7 @@
     <ion-title>
       <img src="/assets/logo.png" alt="" style="width: 10rem" />
     </ion-title>
+
   </ion-toolbar>
 </ion-header>
 
@@ -12,12 +13,16 @@
 
 
 <ion-list>
+<<<<<<< HEAD
 
 
 
     <ion-item button *ngFor="let item of ( results | async);let i=index " [routerLink] = "['/','notice', item.id]" >
 
 
+=======
+    <ion-item button *ngFor="let item of ( results | async)" >
+>>>>>>> 1fb1e70878df536c37f347755e6a0a4805f21e2e
      <ion-grid fixed>
        <ion-row>
          <ion-col size="12" size-lg="6" size-md="6" size-sm="8" size-xs="12">
@@ -37,14 +42,6 @@
        </ion-row>
 
          </ion-grid>
-
-
-
 </ion-item>
-
 </ion-list>
-
-
-
-
 </ion-content>
