@@ -7,7 +7,7 @@
 </ion-header>
 
 <ion-content class="ion-padding">
-    <form [formGroup]="myForm" onsubmit="envio()">
+    <form [formGroup]="myForm" >
   <h1>Contact Us</h1>
   <img src="../../assets/seccion contact us.jpg" alt="">
   <p>You can contact with us, we are always available and ready to help you, we are news, we are dotusnews!!!</p>
@@ -50,7 +50,7 @@
 
 </ion-list>
 <div class="ion-padding">
-    <ion-button ion-button block type="submit" [disabled]="!myForm.valid">Send</ion-button>
+    <ion-button ion-button block type="submit" [disabled]="!myForm.valid" (click)="saveData()">Send</ion-button>
   </div>
   </form>
 </ion-content>

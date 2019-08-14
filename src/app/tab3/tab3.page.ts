@@ -10,10 +10,13 @@ import { EmailComposer } from '@ionic-native/email-composer/ngx';
   styleUrls: ['tab3.page.scss']
 })
 export class Tab3Page {
+  name = '';
+  email = '';
+  gender = '';
   myForm: FormGroup;
   constructor(
     public formBuilder: FormBuilder,
-   /*  private emailComposer: EmailComposer */
+    public emailComposer: EmailComposer
   ) {
     this.myForm = this.createMyForm();
   }
@@ -21,7 +24,14 @@ export class Tab3Page {
     console.log('Segment changed', ev);
   }
   saveData() {
-    console.log(this.myForm.value);
+    console.log(this.myForm.value["email"]);
+    let email = {
+      to: 'marto9610@gmail.com',
+      subject: "I'm interested about in " + this.myForm.value["gender"],
+      body: 'Hi! my name is ' + this.myForm.value["name"] + ', I would like to get from you, my contact email is ' + this.myForm.value["email"],
+      isHtml: true
+    }
+ this.emailComposer.open(email);
   }
   private createMyForm() {
     return this.formBuilder.group({
@@ -30,19 +40,5 @@ export class Tab3Page {
       gender: ['', Validators.required],
     });
 }
-/* private envio() {
-this.emailComposer.isAvailable().then((available: boolean) => {
-    if (available) {
-    }
-   });
-
-const email = {
-     to: 'marto9610@gmail.com',
-     subject: 'Cordova Icons',
-     body: 'How are you? Nice greetings from Leipzig',
-     isHtml: true
-   }
-this.emailComposer.open(email);
-} */
 }
 
