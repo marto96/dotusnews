@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Tab3Page } from './tab3.page';
 import { ReactiveFormsModule } from '@angular/forms';
+import { EmailComposer } from '@ionic-native/email-composer/ngx';
 
 @NgModule({
   imports: [
@@ -13,6 +14,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     FormsModule,
     ReactiveFormsModule,
     RouterModule.forChild([{ path: '', component: Tab3Page }])
+  ],
+  providers:[
+    EmailComposer
   ],
   declarations: [Tab3Page]
 })
