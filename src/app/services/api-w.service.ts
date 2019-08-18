@@ -32,9 +32,9 @@ export class ApiWService {
     console.log('TIPO OBTenido:', type);
     return this.http.get(`${this.url}/${type}`).pipe(
       map(results => {
-        console.log('RAW:', results);
-        return results;
-      })
+/*         console.log('RAW:', results);
+ */        return results;
+      }, {header : {'Content-Type' : 'application/json; charset=UTF-8'}})
     );
 
   }
@@ -44,7 +44,7 @@ export class ApiWService {
   //  console.log('id media OBTenido:', id);
    return this.http.get(`${this.url}/media${id}`).pipe(
      map(res => {
-       console.log('RAW Media:', res);
+       //console.log('RAW Media:', res);
        return res;
      })
    );
